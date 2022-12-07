@@ -17,7 +17,7 @@ export const FeedbackOptions = ({ options, onMakeFeedback }) => {
   });
 };
 
-FeedbackOptions.prototype = {
+FeedbackOptions.propTypes = {
   options: PropTypes.object.isRequired,
   onMakeFeedback: PropTypes.func.isRequired,
 };
