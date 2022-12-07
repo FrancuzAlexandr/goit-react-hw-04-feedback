@@ -20,7 +20,7 @@ export const Statistics = ({
   );
 };
 
-Statistics.prototype = {
+Statistics.propTypes = {
   statistic: Protypes.shape({
     good: Protypes.number.isRequired,
     neutral: Protypes.number.isRequired,
