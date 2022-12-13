@@ -1,11 +1,7 @@
 import Protypes from 'prop-types';
 import css from './Statistics.module.css';
 
-export const Statistics = ({
-  statistic: { good, neutral, bad },
-  total,
-  percentage,
-}) => {
+export const Statistics = ({ good, neutral, bad, total, percentage }) => {
   return (
     <>
       <h2 className={css.title}>Statistic</h2>
@@ -21,11 +17,9 @@ export const Statistics = ({
 };
 
 Statistics.propTypes = {
-  statistic: Protypes.shape({
-    good: Protypes.number.isRequired,
-    neutral: Protypes.number.isRequired,
-    bad: Protypes.number.isRequired,
-  }).isRequired,
+  good: Protypes.number.isRequired,
+  neutral: Protypes.number.isRequired,
+  bad: Protypes.number.isRequired,
   total: Protypes.number.isRequired,
   percentage: Protypes.number.isRequired,
 };
