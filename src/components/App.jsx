@@ -17,12 +17,25 @@ export function App() {
     return Math.round((good * 100) / countAllFeedback());
   };
 
+  const onMakeFeedback = e => {
+    const targetState = e.currentTarget.name;
+
+    if (targetState === 'good') {
+      setGood(state => state + 1);
+    }
+    if (targetState === 'neutral') {
+      setNeutral(state => state + 1);
+    }
+    if (targetState === 'bad') {
+      setBad(state => state + 1);
+    }
+  };
+
   return (
     <Section title="Please leave feedback">
       <FeedbackOptions
-        onClickGood={() => setGood(good + 1)}
-        onClickNeutral={() => setNeutral(neutral + 1)}
-        onClickBad={() => setBad(bad + 1)}
+        options={['good', 'neutral', 'bad']}
+        onMakeFeedback={onMakeFeedback}
       />
       {countAllFeedback() ? (
         <Statistics

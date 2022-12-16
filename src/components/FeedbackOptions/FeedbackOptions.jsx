@@ -1,34 +1,25 @@
 import PropTypes from 'prop-types';
 import css from './FeedbackOptions.module.css';
 
-export const FeedbackOptions = ({
-  onClickGood,
-  onClickNeutral,
-  onClickBad,
-}) => {
+export const FeedbackOptions = ({ options, onMakeFeedback }) => {
   return (
-    <ul>
-      <li>
-        <button className={css.button} type="button" onClick={onClickGood}>
-          Good
+    <div className={css.feedback__container}>
+      {options.map(option => (
+        <button
+          className={css.feedback__btn}
+          type="button"
+          key={option}
+          name={option}
+          onClick={onMakeFeedback}
+        >
+          {option}
         </button>
-      </li>
-      <li>
-        <button className={css.button} type="button" onClick={onClickNeutral}>
-          Neutral
-        </button>
-      </li>
-      <li>
-        <button className={css.button} type="button" onClick={onClickBad}>
-          Bad
-        </button>
-      </li>
-    </ul>
+      ))}
+    </div>
   );
 };
 
 FeedbackOptions.propTypes = {
-  onClickGood: PropTypes.func.isRequired,
-  onClickNeutral: PropTypes.func.isRequired,
-  onClickBad: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  onMakeFeedback: PropTypes.func.isRequired,
 };
